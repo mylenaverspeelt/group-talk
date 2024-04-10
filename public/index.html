@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GroupTalk</title>
+</head>
+
+<body>
+    <h1>ChatTalk 💬</h1>
+
+    <div class="main-container">
+        <div class="name-container">
+            <span><i class="far fa-user"></i></span>
+            <input type="text" id="name-input" class="name-input" value="anonimo" maxlength="20">
+        </div>
+        <ul class="message-list-container" id="messages-list">
+            <li class="message-left">
+                <p class="message">
+                    lorem ipsum
+                    <span>bluebird ⚪ 26 July 10:40</span>
+                </p>
+            </li>
+
+            <li class="message-right">
+                <p class="message">
+                    lorem ipsum
+                    <span>bluebird ⚪ 26 July 10:40</span>
+                </p>
+            </li>
+
+            <li class="message-feedback">
+                <p class="feedback" id="feedback">
+                    mymy is typing a message
+                </p>
+            </li>
+        </ul>
+        <form id="input-message" class="form-container">
+            <input type="text" name="message" id="message-input" class="message-input">
+            <div class="submit-container">
+                <button type="submit" class="send-button">enviar <span class="fas fa-paper-plane"></span></button>
+            </div>
+        </form>
+        <h3 class="onine-users" id="onine-users">Usuários online:</h3>
+
+    </div>
+</body>
+
+</html>

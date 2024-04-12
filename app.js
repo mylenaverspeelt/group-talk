@@ -28,5 +28,10 @@ function onConnected(socket) {
         io.emit('online-users', socketConnected.size)
 
     })
+
+    socket.on('message', (data) => {
+        console.log(data)
+        socket.broadcast.emit('chat-message', data)
+    })
 }
 

@@ -1,7 +1,7 @@
 const socket = io()
 
 const usersOnline = document.getElementById('online-users')
-const messageContainer = document.getElementById('message-list-container')
+const messageContainer = document.getElementById('messages-list')
 const nameInput = document.getElementById('name-input')
 const messageForm = document.getElementById('message-form')
 const messageInput = document.getElementById('message-input')
@@ -16,6 +16,9 @@ socket.on('online-users', (data) => {
 })
 
 function sendMessage() {
+    
+    
+    if(messageInput.value == '') return 
     console.log(messageInput.value)
 
     const data = {
@@ -24,5 +27,30 @@ function sendMessage() {
         dateTime: new Date()
     }
     socket.emit('message', data)
+    addMessageToUI(true, data)
+    messageInput.value = ''
 }
 
+socket.on('chat-message', (data) => {
+    addMessageToUI(false, data)
+})
+
+
+function addMessageToUI(isOwnMessage, data) {
+
+    const element = `
+<li class="${isOwnMessage ? "message-right" : "message-left"}">
+<p class="message">
+    ${data.message}
+    <span class="message-status">${data.name} ⚪ ${moment(data.dateTime).fromNow()}</span>
+</p>
+</li>
+`
+
+    messageContainer.innerHTML += element
+    scrollToBottom()
+}
+
+function scrollToBottom() {
+    messageContainer.scrollTo(0, messageContainer.scrollHeight)
+}

@@ -9,7 +9,7 @@ O site está atualmente hospedado na **** e pode ser acessado através do seguin
 * https://www.exemplo.com
 
 
-<img src="./src/app/public/images/mix-store-print.jpg">
+<img src="./public/resources/print.jpeg">
 
 ### Funcionalidades
 

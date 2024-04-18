@@ -19,9 +19,7 @@ socket.on('online-users', (data) => {
 
 function sendMessage() {
 
-
     if (messageInput.value == '') return
-    console.log(messageInput.value)
 
     const data = {
         name: nameInput.value,
@@ -38,7 +36,6 @@ socket.on('chat-message', (data) => {
     addMessageToUI(false, data)
 })
 
-
 function addMessageToUI(isOwnMessage, data) {
     clearFeedbackMessages()
     const element = `
@@ -48,8 +45,7 @@ function addMessageToUI(isOwnMessage, data) {
     <span class="message-status">${data.name} ⚪ ${moment(data.dateTime).fromNow()}</span>
 </p>
 </li>
-`
-
+` 
     messageContainer.innerHTML += element
     scrollToBottom()
 }
@@ -87,8 +83,6 @@ socket.on('feedback', (data) => {
 </li>`
 
     messageContainer.innerHTML += element
-
-
 })
 
 function clearFeedbackMessages() {

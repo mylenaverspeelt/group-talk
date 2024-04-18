@@ -16,13 +16,11 @@ let socketConnected = new Set()
 io.on('connection', onConnected)
 
 function onConnected(socket) {
-    console.log(socket.id)
     socketConnected.add(socket.id)
 
     io.emit('online-users', socketConnected.size)
 
     socket.on('disconnect', () => {
-        console.log('Socket disconnected', socket.id)
         socketConnected.delete(socket.id)
 
         io.emit('online-users', socketConnected.size)
@@ -30,12 +28,11 @@ function onConnected(socket) {
     })
 
     socket.on('message', (data) => {
-        console.log(data)
         socket.broadcast.emit('chat-message', data)
     })
 
-socket.on('feedback', (data)=>{
-    socket.broadcast.emit('feedback', data)
-})
+    socket.on('feedback', (data) => {
+        socket.broadcast.emit('feedback', data)
+    })
 }
 

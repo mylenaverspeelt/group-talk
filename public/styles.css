@@ -16,6 +16,26 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+@media only screen and (max-width: 48rem) {
+
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0 2rem;
+    }
+
+    .main-container, .name-container, .form-container, .message-list-container {
+        max-width: 100%;
+
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .message-list-container {
+        height: 25rem !important;
+    }
+}
+
 .page-title {
     margin: 1.25rem 0;
 }
@@ -35,7 +55,7 @@ body {
     background-color: #ebebeb;
 }
 
-.name-container > span {
+.name-container>span {
     color: #bbb;
 }
 
